@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Fluency in English 🇧🇷🇺🇸🇬🇧</title>
+    <!--
+        As a senior developer, I'm using a CDN for Tailwind CSS for simplicity.
+        In a production environment, I would use a build process to tree-shake
+        and optimize the CSS, but this approach is perfect for a self-contained
+        code sample.
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /*
+            We're defining custom CSS variables for our gradient colors
+            to match the aesthetic of a programmer's or gamer's screen.
+            This gives us fine-grained control and a single point to
+            adjust the theme's colors.
+        */
+        :root {
+            --dark-background: #0d0c1d;
+            --main-gradient: linear-gradient(90deg, #ff9f00, #ff1b00);
+            --header-gradient: linear-gradient(45deg, #0077ff, #00fff2);
+            --sub-gradient: linear-gradient(90deg, #ff9f00, #ff1b00);
+            --explanation-gradient: linear-gradient(45deg, #ff00c3, #6a00ff);
+            --context-gradient: linear-gradient(90deg, #00aaff, #4dff00);
+            --table-header-bg: #22223b;
+            --table-border-color: #4a4e69;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-background);
+            background-image: radial-gradient(circle at 50% 50%, rgba(255, 0, 127, 0.1) 0%, rgba(13, 12, 29, 0.8) 50%, rgba(13, 12, 29, 1) 100%);
+            color: #e0e0e0; /* Light gray text for high contrast */
+        }
+
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        .header-gradient-text {
+            background-image: var(--header-gradient);
+        }
+
+        .main-gradient-text {
+            background-image: var(--main-gradient);
+        }
+
+        .sub-gradient-text {
+            background-image: var(--sub-gradient);
+        }
+
+        .explanation-gradient-text {
+            background-image: var(--explanation-gradient);
+        }
+
+        .context-gradient-text {
+            background-image: var(--context-gradient);
+        }
+
+        .code-block {
+            background-color: #1a1a2e;
+            border-left: 4px solid #4a4e69;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            color: #c792ea; /* A vibrant purple for the code text */
+        }
+
+        /* Styling for the reveal button */
+        .reveal-button {
+            transition: all 0.3s ease-in-out;
+        }
+        .reveal-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Styling for the hidden answer */
+        .hidden-answer {
+            transition: all 0.5s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            padding: 0 1rem;
+        }
+        .hidden-answer.visible {
+            max-height: 100px; /* Adjust as needed */
+            opacity: 1;
+            padding: 1rem;
+        }
+        .hidden-text {
+            color: #ff9f00; /* Use a distinct color for the revealed answer */
+        }
+        
+        /* Collapsible section for word-by-word analysis */
+        .collapsible {
+            background-color: #24223f;
+            color: #fff;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.125rem;
+            transition: 0.4s;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+        }
+        .active, .collapsible:hover {
+            background-color: #3b3a62;
+        }
+        .content {
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+            background-color: #2a284e;
+            border-radius: 0 0 0.5rem 0.5rem;
+        }
+
+        /* Styling for the responsive table */
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .styled-table thead tr {
+            background-color: var(--table-header-bg);
+            color: #ffffff;
+            text-align: left;
+        }
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+        }
+        .styled-table tbody tr {
+            border-bottom: 1px solid var(--table-border-color);
+        }
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: #1a1a2e;
+        }
+        .styled-table tbody tr:last-of-type {
+            border-bottom: 2px solid var(--table-border-color);
+        }
+    </style>
+</head>
+<body class="p-8 md:p-12 min-h-screen">
+    <div class="max-w-4xl mx-auto space-y-12">
+        <!-- Main Title Section -->
+        <header class="text-center mb-16">
+            <h1 class="text-5xl md:text-6xl font-extrabold main-gradient-text gradient-text leading-tight">
+                Natural Fluency in English 🇧🇷🇺🇸🇬🇧
+            </h1>
+            <p class="mt-4 text-lg md:text-xl text-gray-400">
+                Mastering Expressions the Way Native Speakers Do
+            </p>
+        </header>
+
+        <!-- Expression Section 1: Now I am getting hanging on this -->
+        <section class="space-y-6 bg-gray-900 bg-opacity-40 p-6 rounded-lg shadow-2xl">
+            <h2 class="text-3xl md:text-4xl font-bold main-gradient-text gradient-text">
+                Now I am getting hanging on this
+            </h2>
+            
+            <div class="space-y-4">
+                <p class="text-lg explanation-gradient-text gradient-text">
+                    This phrase isn't a standard native English expression. It's a direct, literal translation from a common Brazilian Portuguese phrase. The key here is to find the correct equivalent that a native speaker would use.
+                </p>
+
+                <p class="text-lg context-gradient-text gradient-text">
+                    <span class="font-bold">Context:</span> Imagine you're in a meeting with your boss, who asks for a quick status update on a task. You've hit a roadblock and can't find the solution.
+                </p>
+
+                <p class="text-lg sub-gradient-text gradient-text">
+                    <span class="font-bold">Portuguese:</span> Chefe, me desculpe, mas <span class="text-white">estou ficando empacado com isso</span>.
+                </p>
+
+                <!-- Hidden Answer Section -->
+                <div class="flex items-center space-x-4">
+                    <button class="reveal-button bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200" data-target="answer-2025A">
+                        Show English Equivalent (2025A)
+                    </button>
+                    <div id="answer-2025A" class="hidden-answer">
+                        <p class="text-lg hidden-text font-semibold">
+                            I'm stuck on this, sir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Word by Word Analysis Section -->
+            <button type="button" class="collapsible">
+                Word-by-Word Analysis 🧠
+            </button>
+            <div class="content">
+                <ul class="list-disc list-inside p-4">
+                    <li><span class="font-bold text-yellow-300">"Now I am getting"</span>: While grammatically correct, it's not the natural way to express the current state. Native speakers would use a simpler, more direct verb.</li>
+                    <li><span class="font-bold text-yellow-300">"hanging on this"</span>: This is the literal translation of "empacado". The native equivalent is "stuck," which conveys the idea of being unable to move forward on a task.</li>
+                </ul>
+            </div>
+
+            <!-- Synonyms & Equivalents Table -->
+            <h3 class="text-2xl mt-8 explanation-gradient-text gradient-text">
+                English Synonyms & Portuguese Equivalents 📚
+            </h3>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>English Synonyms</th>
+                        <th>Portuguese Equivalents</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>I'm hitting a roadblock.</td>
+                        <td>Estou encontrando uma barreira.</td>
+                    </tr>
+                    <tr>
+                        <td>I've hit a dead end.</td>
+                        <td>Cheguei a um beco sem saída.</td>
+                    </tr>
+                    <tr>
+                        <td>I'm at a standstill.</td>
+                        <td>Estou num impasse.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Expression Section 2: Don't give it another thought -->
+        <section class="space-y-6 bg-gray-900 bg-opacity-40 p-6 rounded-lg shadow-2xl">
+            <h2 class="text-3xl md:text-4xl font-bold main-gradient-text gradient-text">
+                Don't give it another thought
+            </h2>
+
+            <div class="space-y-4">
+                <p class="text-lg explanation-gradient-text gradient-text">
+                    This is a fantastic idiom used to reassure someone after they have apologized for something small or thanked you for a favor. It's a way of saying "it's no problem at all" or "don't worry about it."
+                </p>
+
+                <p class="text-lg context-gradient-text gradient-text">
+                    <span class="font-bold">Context:</span> Your colleague accidentally spills a bit of coffee on your desk, and immediately apologizes profusely.
+                </p>
+
+                <p class="text-lg sub-gradient-text gradient-text">
+                    <span class="font-bold">Portuguese:</span> Não se preocupe, sério. Não foi nada.
+                </p>
+
+                <!-- Hidden Answer Section -->
+                <div class="flex items-center space-x-4">
+                    <button class="reveal-button bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200" data-target="answer-2025B">
+                        Show English Equivalent (2025B)
+                    </button>
+                    <div id="answer-2025B" class="hidden-answer">
+                        <p class="text-lg hidden-text font-semibold">
+                            Don't give it another thought.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Word by Word Analysis Section -->
+            <button type="button" class="collapsible">
+                Word-by-Word Analysis 🧠
+            </button>
+            <div class="content">
+                <ul class="list-disc list-inside p-4">
+                    <li><span class="font-bold text-yellow-300">"Don't"</span>: A contraction of "Do not."</li>
+                    <li><span class="font-bold text-yellow-300">"give it"</span>: To allocate time or mental energy to something.</li>
+                    <li><span class="font-bold text-yellow-300">"another thought"</span>: To think about something again. The full phrase means "don't spend any more time worrying about it."</li>
+                </ul>
+            </div>
+
+            <!-- Synonyms & Equivalents Table -->
+            <h3 class="text-2xl mt-8 explanation-gradient-text gradient-text">
+                English Synonyms & Portuguese Equivalents 📚
+            </h3>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>English Synonyms</th>
+                        <th>Portuguese Equivalents</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>No problem at all.</td>
+                        <td>Não foi nada. / De forma alguma.</td>
+                    </tr>
+                    <tr>
+                        <td>Forget about it.</td>
+                        <td>Deixa pra lá.</td>
+                    </tr>
+                    <tr>
+                        <td>It's all good.</td>
+                        <td>Tá tudo certo.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Expression Section 3: I was pressed for time -->
+        <section class="space-y-6 bg-gray-900 bg-opacity-40 p-6 rounded-lg shadow-2xl">
+            <h2 class="text-3xl md:text-4xl font-bold main-gradient-text gradient-text">
+                I was pressed for time
+            </h2>
+
+            <div class="space-y-4">
+                <p class="text-lg explanation-gradient-text gradient-text">
+                    This is a formal and idiomatic way of saying you had very little time to do something. It's much more common in formal or business settings than "I was without time."
+                </p>
+
+                <p class="text-lg context-gradient-text gradient-text">
+                    <span class="font-bold">Context:</span> You're explaining to a friend why you couldn't stay for coffee after a meeting.
+                </p>
+
+                <p class="text-lg sub-gradient-text gradient-text">
+                    <span class="font-bold">Portuguese:</span> Desculpa, eu não pude ficar para o café. <span class="text-white">Estava sem tempo.</span>
+                </p>
+
+                <!-- Hidden Answer Section -->
+                <div class="flex items-center space-x-4">
+                    <button class="reveal-button bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200" data-target="answer-2025C">
+                        Show English Equivalent (2025C)
+                    </button>
+                    <div id="answer-2025C" class="hidden-answer">
+                        <p class="text-lg hidden-text font-semibold">
+                            Sorry, I couldn't stay for coffee. I was pressed for time.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Word by Word Analysis Section -->
+            <button type="button" class="collapsible">
+                Word-by-Word Analysis 🧠
+            </button>
+            <div class="content">
+                <ul class="list-disc list-inside p-4">
+                    <li><span class="font-bold text-yellow-300">"pressed"</span>: Here, it means "under pressure" or "constrained."</li>
+                    <li><span class="font-bold text-yellow-300">"for time"</span>: Referring to the resource of time. The phrase implies a shortage.</li>
+                </ul>
+            </div>
+
+            <!-- Synonyms & Equivalents Table -->
+            <h3 class="text-2xl mt-8 explanation-gradient-text gradient-text">
+                English Synonyms & Portuguese Equivalents 📚
+            </h3>
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>English Synonyms</th>
+                        <th>Portuguese Equivalents</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>I was short on time.</td>
+                        <td>Eu estava com pouco tempo.</td>
+                    </tr>
+                    <tr>
+                        <td>I was in a rush.</td>
+                        <td>Eu estava com pressa.</td>
+                    </tr>
+                    <tr>
+                        <td>My time was limited.</td>
+                        <td>Meu tempo era limitado.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+
+    <script>
+        // DOMContentLoaded is crucial to ensure the script runs only after the
+        // entire HTML document has been loaded and parsed.
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // Function to handle the reveal button logic
+            const revealButtons = document.querySelectorAll('.reveal-button');
+            revealButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Get the ID of the target answer div from the data attribute
+                    const targetId = button.dataset.target;
+                    const answerDiv = document.getElementById(targetId);
+
+                    if (answerDiv) {
+                        // Toggle the 'visible' class to show/hide the answer
+                        answerDiv.classList.toggle('visible');
+                    }
+                });
+            });
+
+            // Function to handle the collapsible sections
+            const collapsibles = document.querySelectorAll('.collapsible');
+            collapsibles.forEach(collapsible => {
+                collapsible.addEventListener('click', function() {
+                    // Toggle the 'active' class on the button itself
+                    this.classList.toggle('active');
+
+                    // Get the content element directly following the button
+                    const content = this.nextElementSibling;
+                    
+                    // Animate the height to expand/collapse the content
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        // Set the maxHeight to the scrollHeight to fully expand the content
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
